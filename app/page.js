@@ -1,4 +1,10 @@
+"use client";
+
+import { useTheme } from "./context/ThemeContext";
+
 export default function Home() {
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-background px-6 text-foreground">
       <main className="flex w-full max-w-md flex-col items-center gap-8 text-center">
@@ -18,12 +24,13 @@ export default function Home() {
           </p>
         </div>
 
-        {/* This button does nothing yet. Wiring it up is your job. */}
+        {/* BUTTON IS NOW ALIVE */}
         <button
           type="button"
+          onClick={toggleTheme}
           className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90"
         >
-          Switch to dark mode
+          Switch to {theme === "light" ? "dark" : "light"} mode
         </button>
       </main>
     </div>
